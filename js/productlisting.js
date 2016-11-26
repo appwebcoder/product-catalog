@@ -69,11 +69,11 @@
     auth.onAuthStateChanged(function(user) {
         if (user) {
             console.log('User '+ user.uid + ' is logged in with ' + user.provider);
-            var loggedIn = '<li><p class="navbar-text navbar-right">' + user.email + ' logged in</p></li>';
-            loggedIn += '<li><button type="button" class="btn btn-warning navbar-btn" id="logoutButton">Logout</button></li>';
+            var loggedIn = '<li><p class="navbar-text">' + user.email + '</p></li>';
+            loggedIn += '<li><a href="#" id="logoutLink">Logout</a></li>';
 
-            $(loggedIn).appendTo('.nav');
-            $('#logoutButton').click(logOff);
+            $(loggedIn).appendTo('.navbar-right');
+            $('#logoutLink').click(logOff);
             console.log('User logged in');
         } else {
             console.log('User not logged in');
