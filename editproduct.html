@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Title -->
+    <title>Edit Product</title>
+    <!-- Bootstrap Local CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom CSS Style -->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="editproduct.html">Edit Product</a></li>
+            <li><a href="productlisting.html">List Products</a></li>
+        </ul>
+    </div><!-- navbar-collapse collapse -->
+</nav>
+<div class="container-fluid">
+    <form action="" id="editForm">
+        <div class="form-group">
+            <label for="itemName">Item Name</label>
+            <input type="text" class="form-control" id="itemName">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label for="itemDescription">Item Description</label>
+            <textarea class="form-control" id="itemDescription" rows="3"></textarea>
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label for="itemPrice">Item Price</label>
+            <input type="text" class="form-control" id="itemPrice">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label for="imageInput">Choose Image</label>
+            <input type="file" class="form-control" id="imageInput">
+            <p class="help-block">Choose an Image to be displayed on product page</p>
+            <img id="preview" src="" alt="">
+        </div><!-- form-group -->
+        <button type="button" class="btn btn-primary" id="editButton">Update</button>
+    </form>
+</div><!-- container-fluid -->
+
+<!-- Firebase Conection -->
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<!-- Prefix for vendor properties in CSS -->
+<script type="text/javascript" src="js/prefixfree.min.js"></script>
+<!-- jQuery first, then Bootstrap JS. -->
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- Tether for Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+<!-- Bootstrap JavaScript Local -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+<!-- JavaScript Custom -->
+<script type="text/javascript" src="js/editproduct.js"></script>
+
+</body>
+</html>
