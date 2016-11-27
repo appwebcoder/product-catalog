@@ -14,9 +14,6 @@ $(function() {
     "use strict";
 
     const auth = firebase.auth();
-    var user = auth.currentUser;
-    console.log('User ', user);
-
     var db = firebase.database();
     var prodData = {};
 
@@ -57,10 +54,31 @@ $(function() {
 
         listProducts.innerHTML = prodPreview;
 
-        //$(prodPreview).appendTo('#main');
-
     }, function (errorObject) {
-        console.log('The read failed: ' + errorObject.code);
+        console.log('La lectura fallo: ' + errorObject.code);
     });
+
+    function logOff() {
+        auth.signOut().then(function() {
+            location.assign('index.html');
+        }, function(error) {
+            // An error happened.
+            console.log('Error al salir', error);
+        });
+    }
+
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            var loggedIn = '<li><p class="navbar-text">' + user.email + '</p></li>';
+            loggedIn += '<li><a href="#" id="logoutLink">Salir</a></li>';
+
+            $(loggedIn).appendTo('.navbar-right');
+            $('#logoutLink').click(logOff);
+            console.log('Usuario logueado');
+        } else {
+            console.log('Usuario no logueado');
+        }
+    });
+
 });
 

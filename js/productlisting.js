@@ -25,18 +25,16 @@
 
     function logOff() {
         auth.signOut().then(function() {
-            console.log('User logged out!');
+            console.log('Usuario deslogueado!');
             //unsetAppCookie;
             location.assign('index.html');
         }, function(error) {
             // An error happened.
-            console.log('Error on logout', error);
-            //location.assign('index.html');
+            console.log('Error al salir', error);
         });
     }
 
     function editProduct(id) {
-        console.log(id);
         window.name = id;
         location.assign('editproduct.html');
         return false;
@@ -44,39 +42,29 @@
 
     function onComplete(error) {
         if(error) {
-            alert('Delete Failed!');
+            alert('Eliminacion Fallo!');
         } else {
-            alert('Deleted Succesfully!');
+            alert('Se Elimino Correctamente!');
             //location.reload(true);
         }
     }
 
     function deleteProduct(id) {
-        if (confirm('Are you sure you want to delete?') == true) {
+        if (confirm('Estas seguro de eliminar la publicacion?') == true) {
             prodRef.child(id).remove(onComplete);
         }
     }
 
-
-
-    /*
-    const unsetAppCookie = () =>
-        cookies.remove('token', {
-        domain: window.location.hostname,
-        path: '/',
-    });
-    */
     auth.onAuthStateChanged(function(user) {
         if (user) {
-            console.log('User '+ user.uid + ' is logged in with ' + user.provider);
             var loggedIn = '<li><p class="navbar-text">' + user.email + '</p></li>';
-            loggedIn += '<li><a href="#" id="logoutLink">Logout</a></li>';
+            loggedIn += '<li><a href="#" id="logoutLink">Salir</a></li>';
 
             $(loggedIn).appendTo('.navbar-right');
             $('#logoutLink').click(logOff);
-            console.log('User logged in');
+            console.log('Usuario logueado');
         } else {
-            console.log('User not logged in');
+            console.log('Usuario no logueado');
             location.assign('login.html');
         }
     });
@@ -126,11 +114,10 @@
 
         }
         listProducts.innerHTML = prodPreview;
-        //$(prodPreview).appendTo('#main');
 
     }, function (errorObject) {
 
-        console.log('The read failed: ' + errorObject.code);
+        console.log('Fallo la lectura de datos: ' + errorObject.code);
     });
 
 //});

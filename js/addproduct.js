@@ -19,6 +19,7 @@ $(function() {
         firebase.initializeApp(config);
     }
 
+    const auth = firebase.auth();
     var db = firebase.database();
 
     var itemName;
@@ -66,4 +67,28 @@ $(function() {
     }
 
     $('#saveButton').click(AddProduct);
+
+    function logOff() {
+        auth.signOut().then(function() {
+            location.assign('index.html');
+        }, function(error) {
+            // An error happened.
+            console.log('Error al salir', error);
+        });
+    }
+
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            var loggedIn = '<li><p class="navbar-text">' + user.email + '</p></li>';
+            loggedIn += '<li><a href="#" id="logoutLink">Salir</a></li>';
+
+            $(loggedIn).appendTo('.navbar-right');
+            $('#logoutLink').click(logOff);
+            console.log('Usuario logueado');
+        } else {
+            console.log('Usuario no logueado');
+            location.assign('login.html');
+        }
+    });
+
 });

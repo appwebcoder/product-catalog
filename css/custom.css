@@ -4,6 +4,12 @@
 #loginForm h2 {
     text-align: center;
 }
+#registerForm h2{
+    text-align: center;
+}
+#addForm h2 {
+    text-align: center;
+}
 .spacer {
     min-height: 30px;
 }

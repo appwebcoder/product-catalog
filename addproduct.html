@@ -6,44 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Title -->
-    <title>Add Product</title>
+    <title>VendeTodo</title>
     <!-- Bootstrap Local CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Custom CSS Style -->
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
+    <!-- Nav -->
     <nav class="navbar navbar-inverse">
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="productlisting.html">Admin</a></li>
-                <li class="active"><a href="addproduct.html">Add Products</a></li>
-            </ul>
-        </div><!-- navbar-collapse collapse -->
+        <div class="container-fluid">
+            <!-- Brand -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">VendeTodo</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productlisting.html">Admin</a></li>
+                    <li class="active"><a href="addproduct.html">+Producto</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- User name and logout link go here -->
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- container-fluid -->
     </nav>
+    <!-- Content -->
     <div class="container">
         <form action="" id="addForm" class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
-            <h2>Publish a new Product</h2>
+            <h2>Publica nuevo producto!</h2>
             <div class="form-group">
-                <label for="itemName">Item Name</label>
-                <input type="text" class="form-control" id="itemName" placeholder="Enter Item name">
+                <label for="itemName">Nombre del Articulo</label>
+                <input type="text" class="form-control" id="itemName" placeholder="Ingresa el nombre del articulo">
             </div><!-- form-group -->
             <div class="form-group">
-                <label for="itemDescription">Item Description</label>
-                <textarea class="form-control" id="itemDescription" placeholder="Enter an Item Description" rows="3"></textarea>
+                <label for="itemDescription">Descripcion del articulo</label>
+                <textarea class="form-control" id="itemDescription" placeholder="Ingresa la descripcion del articulo" rows="3"></textarea>
             </div><!-- form-group -->
             <div class="form-group">
-                <label for="itemPrice">Item Price</label>
-                <input type="text" class="form-control" id="itemPrice" placeholder="Enter Item price">
+                <label for="itemPrice">Precio del Articulo</label>
+                <input type="text" class="form-control" id="itemPrice" placeholder="Indica el precio del articulo">
             </div><!-- form-group -->
             <div class="form-group">
-                <label for="imageInput">Choose Image</label>
+                <label for="imageInput">Elegi una imagen</label>
                 <input type="file" class="form-control" id="imageInput">
-                <p class="help-block">Choose an Image to be displayed on product page</p>
+                <p class="help-block">Elegi la imagen del producto que sera vista en la publicacion</p>
                 <img id="preview" src="" alt="">
             </div><!-- form-group -->
-            <button type="submit" class="btn btn-primary" id="saveButton" disabled="disabled">Save</button>
+            <button type="submit" class="btn btn-primary" id="saveButton" disabled="disabled">Publicar</button>
         </form>
     </div><!-- container-fluid -->
 

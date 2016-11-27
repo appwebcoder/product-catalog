@@ -13,7 +13,7 @@ $(function() {
         password = $('#password').val();
         passwordConfirm = $('#password2').val();
 
-        if (password == passwordConfirm) {
+        if (password === passwordConfirm && password.length > 5) {
             $('#registerButton').removeAttr('disabled');
         } else {
             $('#registerButton').attr('disabled','disabled');
@@ -28,31 +28,14 @@ $(function() {
 
         const promise = auth.createUserWithEmailAndPassword(email, password);
 
-        promise.catch(error => console.log(error.message));
-        /*
-        .catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-
-            if (error) {
-                console.log(errorMessage);
-            }
-        }).then(function (user) {
-            if (user) {
-                console.log('Successfully created user account');
-                location.assign('index.html');
-            }
+        promise.catch(function (error) {
+            console.log(error.message);
         });
-        */
-
     }
-
 
     function cancelRegister() {
         location.assign('index.html');
     }
-
 
     $('#registerButton').click(registerUser);
     $('#cancelButton').click(cancelRegister);

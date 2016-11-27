@@ -7,15 +7,6 @@ $(function() {
     // El modo estricto elimina algunos errores silenciosos de JavaScript haciendo que lancen excepciones, corrige errores que hacen que sea difícil para los motores de JavaScript realizar optimizaciones y  prohibe cierta sintaxis que es probable que sea definida en futuras versiones de ECMAScript.
     "use strict";
 
-    const setAppCookie = () => firebase.auth().currentUser &&
-        firebase.auth().currentUser.getToken().then(token => {
-            cookies.set('token', token, {
-            domain: window.location.hostname,
-            expire: 1 / 24, // One hour
-            path: '/',
-            secure: true // If served over HTTPS
-        });
-    });
     const auth = firebase.auth();
 
     var email, password;
@@ -45,24 +36,16 @@ $(function() {
 
         const promise = auth.signInWithEmailAndPassword(email, password);
 
-        promise.catch(error => console.log(error.message));
-        setAppCookie;
-        /*
-        var user = firebase.auth().currentUser;
-
-        if (user) {
-            location.assign('productlisting.html');
-        }
-        */
-        console.log('aqui: ', promise, 'email:' , email, 'pass: ',password);
+        promise.catch(function (error) {
+            console.log(error.message)
+        });
     }
 
     auth.onAuthStateChanged(function(user) {
         if(user) {
-            console.log(user.email, user);
-            location.assign('index.html');
+            location.assign('productlisting.html');
         } else {
-            console.log('User not logged in');
+            console.log('Usuario no logueado');
         }
     });
 
