@@ -22,5 +22,5 @@
 
 4. Demo Online hosteado en Firebase
 
-    product-catalog-fd479.firebaseapp.com
+    https://product-catalog-fd479.firebaseapp.com
 

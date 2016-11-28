@@ -20,6 +20,7 @@ $(function() {
     }
     StartFb();
 
+    const auth = firebase.auth();
     var db = firebase.database();
 
     var prodId = window.name;
@@ -60,9 +61,9 @@ $(function() {
 
     function onComplete(error) {
         if (error) {
-            alert('update failed, error code: '+ error.code);
+            alert('fallo la madificacion, codigo error: '+ error.code);
         } else {
-            alert('update succeeded');
+            alert('modificacion exitosa');
             location.assign('productlisting.html');
         }
     }
@@ -82,6 +83,29 @@ $(function() {
         );
     }
 
-$('#editButton').click(editProduct);
+    $('#editButton').click(editProduct);
+
+    function logOff() {
+        auth.signOut().then(function() {
+            location.assign('index.html');
+        }, function(error) {
+            // An error happened.
+            console.log('Error al salir', error);
+        });
+    }
+
+    auth.onAuthStateChanged(function(user) {
+        if (user) {
+            var loggedIn = '<li><p class="navbar-text">' + user.email + '</p></li>';
+            loggedIn += '<li><a href="#" id="logoutLink">Salir</a></li>';
+
+            $(loggedIn).appendTo('.navbar-right');
+            $('#logoutLink').click(logOff);
+            console.log('Usuario logueado');
+        } else {
+            console.log('Usuario no logueado');
+            location.assign('login.html');
+        }
+    });
 });
 

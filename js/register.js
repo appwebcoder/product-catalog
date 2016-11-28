@@ -13,7 +13,7 @@ $(function() {
         password = $('#password').val();
         passwordConfirm = $('#password2').val();
 
-        if (password === passwordConfirm && password.length > 5) {
+        if (password === passwordConfirm && password.length < 5) {
             $('#registerButton').removeAttr('disabled');
         } else {
             $('#registerButton').attr('disabled','disabled');

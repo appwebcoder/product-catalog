@@ -1,48 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Title -->
-    <title>Edit Product</title>
+    <title>VendeTodo - Modificar Publicacion</title>
     <!-- Bootstrap Local CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Custom CSS Style -->
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
+<!-- Nav -->
 <nav class="navbar navbar-inverse">
-    <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li><a href="index.html">Home</a></li>
-            <li class="active"><a href="editproduct.html">Edit Product</a></li>
-            <li><a href="productlisting.html">List Products</a></li>
-        </ul>
-    </div><!-- navbar-collapse collapse -->
+    <div class="container-fluid">
+        <!-- Brand -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">VendeTodo</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productlisting.html">Admin</a></li>
+                <li class="active"><a href="editproduct.html">Modificar</a></li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <!-- User name and logout link go here -->
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- container-fluid -->
 </nav>
+<!-- Content -->
 <div class="container-fluid">
-    <form action="" id="editForm">
+    <form action="" id="editForm" class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-lg-6 col-lg-offset-3 col-xs-12 col-xs-offset-0">
+        <h2>Modificar Publicacion</h2>
         <div class="form-group">
-            <label for="itemName">Item Name</label>
+            <label for="itemName">Nombre Articulo</label>
             <input type="text" class="form-control" id="itemName">
         </div><!-- form-group -->
         <div class="form-group">
-            <label for="itemDescription">Item Description</label>
+            <label for="itemDescription">Descripcion Articulo</label>
             <textarea class="form-control" id="itemDescription" rows="3"></textarea>
         </div><!-- form-group -->
         <div class="form-group">
-            <label for="itemPrice">Item Price</label>
+            <label for="itemPrice">Precio Articulo</label>
             <input type="text" class="form-control" id="itemPrice">
         </div><!-- form-group -->
         <div class="form-group">
-            <label for="imageInput">Choose Image</label>
+            <label for="imageInput">Elegir Foto</label>
             <input type="file" class="form-control" id="imageInput">
-            <p class="help-block">Choose an Image to be displayed on product page</p>
+            <p class="help-block">Elegir la foto del producto</p>
             <img id="preview" src="" alt="">
         </div><!-- form-group -->
-        <button type="button" class="btn btn-primary" id="editButton">Update</button>
+        <button type="button" class="btn btn-primary" id="editButton">Modificar</button>
     </form>
 </div><!-- container-fluid -->
 
